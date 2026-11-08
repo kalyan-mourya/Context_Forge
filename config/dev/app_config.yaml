@@ -1,0 +1,46 @@
+app:
+  app_name: "ContextForge"
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+  environment: "dev"
+
+vector_store:
+  type: "faiss"
+  persist_path: "./data/vector_db/knowledge_base/"
+  index_name: "knowledge_base"
+  top_k: 4
+
+docs_path:
+  preprocessed: "./data/preprocessed/"
+  chat_history: "./data/raw/chat_history"
+
+retriever:
+  chunk_size: 1200
+  chunk_overlap: 300
+  similarity_metric: "cosine"
+
+ui:
+  enable_frontend: true
+  frontend_url: "http://localhost:3000"
+
+functions:
+  - summarize_lecture
+  - explain_concept
+  - compare_topics
+  - answer_research_question
+  - answer_course_question
+
+top_label_intent:
+  - Course Content
+  - Lecture Summary
+  - Research Paper
+  - Concept Explanation
+  - Study Guidance
+  - Unknown/Intent
+  - greetings
+
+intent_mode:
+  - Action
+  - Other
+
